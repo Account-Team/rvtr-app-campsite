@@ -1,19 +1,33 @@
 <p>Welcome {{accounts[0]?.name}}!</p>
 <p>Profiles</p>
 <ul>
-  <li *ngFor="let profile of profiles">
-    <a routerLink="/profile/{{profile.id}}">
+  <li *ngFor="let profile of profiles" 
+  [class.selected]="profile === selectedProfile" 
+  (click)="onSelect(profile)">
+    <a routerLink="/account/profile/{{profile.id}}">
      <h4>{{profile.name.given}}</h4>
     </a>
   </li>
 </ul>
 <p>Payments</p>
 <ul>
-  <li *ngFor="let payment of payments"></li>
+  <li *ngFor="let payment of payments">
     <h4>{{payment.cardNumber}}</h4>
+  </li>
 </ul>
 
-<!-- TODO: Last 4 of card number
+
+<!--
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+--
+
+<uic-profile [profile]="selectedProfile"></uic-profile>
+
+!-- TODO: Last 4 of card number
   Clickable payments to edit?
 edit account name
 delete account?

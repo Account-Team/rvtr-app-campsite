@@ -10,7 +10,7 @@ export const ACCOUNTS: Account[] = [
       stateProvince: "Texas",
       street: "80 Mesquite"
     },
-    name: 'Family',
+    name: 'Smith Family',
     payments:
     [
       { id: "2222",
@@ -28,7 +28,7 @@ export const ACCOUNTS: Account[] = [
     profiles:
     [
       {
-        id: "112358",
+        id: "1",
         email: "jasmi@email.com",
         name:
         {
@@ -39,7 +39,7 @@ export const ACCOUNTS: Account[] = [
         phone: "123-456-7890"
       },
       {
-        id: "113452",
+        id: "2",
         email: "josmi@email.com",
         name:
         {
