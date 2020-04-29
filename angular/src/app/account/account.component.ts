@@ -27,6 +27,11 @@ export class AccountComponent implements OnInit {
   onSelect(profile: Profile): void {
     this.selectedProfile = profile;
   }
+  displayProfileData = false;
+  onSelectProfile() {
+    // this.selectedProfile = profile;
+    this.displayProfileData = true;
+  }
   
   getAccounts(): void {
     this.accountService.get(this.ID)

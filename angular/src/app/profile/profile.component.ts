@@ -14,6 +14,7 @@ import { AccountService } from '../services/account/account.service';
 export class ProfileComponent implements OnInit {
 
   @Input() profile: Profile;
+  @Input() account: Account;
   
 
   constructor(
@@ -28,7 +29,10 @@ export class ProfileComponent implements OnInit {
 
   getProfile(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.accountService.get(id.toString());
+    console.log(id);
+    this.accountService.get()
+    .subscribe(account => this.account[0] = account);
+    console.log(this.account);
   }
 
   //get the profile from id of clicked

@@ -1,21 +1,32 @@
-<p>Welcome {{accounts[0]?.name}}!</p>
+<h2>Welcome {{accounts[0]?.name}}</h2>
+<h3>View your Account information below:</h3>
 <p>Profiles</p>
 <ul>
   <li *ngFor="let profile of profiles" 
-  [class.selected]="profile === selectedProfile" 
-  (click)="onSelect(profile)">
-    <a routerLink="/account/profile/{{profile.id}}">
+  [class.selected]="profile === selectedProfile"
+  >
      <h4>{{profile.name.given}}</h4>
-    </a>
   </li>
 </ul>
-<p>Payments</p>
-<ul>
-  <li *ngFor="let payment of payments">
-    <h4>{{payment.cardNumber}}</h4>
-  </li>
-</ul>
+<div>
+  <p>Address: {{ accounts[0]?.address.street }} {{ accounts[0]?.address.city }}, {{ accounts[0]?.address.stateProvince }} {{ accounts[0]?.address.postalCode }}</p>
+</div>
+<button (click)="onSelectProfile()" >Show Payment Information</button>
 
+
+
+<div *ngIf="displayProfileData">
+  <p>Payments</p>
+  <ul>
+    <li *ngFor="let payment of payments">
+      <h4>{{payment.cardNumber}}</h4>
+    </li>
+  </ul>
+</div>
+
+
+<!-- 
+<button> {{ cond_vall == true ? 'Case 1' : 'Case 2' }}</button> -->
 
 <!--
   <li *ngFor="let hero of heroes"
